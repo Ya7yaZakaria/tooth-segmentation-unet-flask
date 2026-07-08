@@ -1,0 +1,35 @@
+﻿# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+venv/
+.env
+
+# VS Code
+.vscode/
+
+# Jupyter / Kaggle
+.ipynb_checkpoints/
+
+# Model files
+*.h5
+*.keras
+
+# Large datasets
+data/
+datasets/
+
+# Uploaded and predicted images
+flask_app/static/uploads/*
+flask_app/static/predictions/*
+
+# Keep empty folders
+!flask_app/static/uploads/.gitkeep
+!flask_app/static/predictions/.gitkeep
+
+# OS files
+.DS_Store
+Thumbs.db
