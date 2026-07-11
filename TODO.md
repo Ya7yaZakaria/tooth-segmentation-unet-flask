@@ -189,3 +189,19 @@
 ## Phase 21 — Final Submission Package
 
 - [ ] Prepare final submission folder.
+
+## Completed — Kaggle Training and Export
+
+- [x] Phase 10 — Train U-Net model
+- [x] Phase 11 — Review training curves
+- [x] Phase 12 — Visualize predictions
+- [x] Phase 13 — Final evaluation
+- [x] Phase 14 — Export trained model
+- [x] Add Kaggle notebook to repository
+- [x] Add trained Keras model to repository
+
+## Next
+- [ ] Phase 15 — Flask project setup
+- [ ] Phase 16 — Flask upload interface
+- [ ] Phase 17 — Flask prediction service
+- [ ] Phase 18 — Result visualization

@@ -166,3 +166,18 @@ Model compiled successfully.
 ### Next
 
 Start Phase 10 — Model Training.
+
+## 2026-07-11 — Phase 10 to Phase 14 Completion
+
+### Added
+- Phase 10 training completion documentation.
+- Phase 11 training curves completion documentation.
+- Phase 12 prediction visualization completion documentation.
+- Phase 13 final evaluation completion documentation.
+- Phase 14 model export completion documentation.
+- Kaggle notebook artifact.
+- Trained U-Net Keras model artifact.
+
+### Notes
+- The model uses bounding-box-derived weak masks.
+- The Flask deployment phase can now begin.

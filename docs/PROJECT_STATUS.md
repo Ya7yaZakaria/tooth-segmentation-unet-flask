@@ -103,3 +103,21 @@ Phase 10 — Model Training
 - Add EarlyStopping.
 - Add ModelCheckpoint.
 - Save the best model checkpoint.
+
+## Phase 10–14 Documentation Update
+
+The Kaggle training and model export workflow has been completed.
+
+Completed items:
+- Phase 10 — U-Net model training
+- Phase 11 — Training curves review
+- Phase 12 — Prediction visualization
+- Phase 13 — Final evaluation
+- Phase 14 — Model export
+
+Artifacts added:
+- notebooks/tooth_segmentation_unet_kaggle.ipynb
+- flask_app/model/unet_weak_mask_segmentation.keras
+
+Important technical note:
+The model was trained using bounding-box-derived weak masks because the dataset does not provide true pixel-level segmentation masks.

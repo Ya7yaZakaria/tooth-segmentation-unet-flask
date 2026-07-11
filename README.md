@@ -94,3 +94,23 @@ This project starts as a standalone academic assignment, but it should remain su
 The AI model should not directly modify any database.
 
 In the future iHIS version, the segmentation output should be linked to a dental image record and reviewed by a dentist before clinical use.
+
+## Current Project Status
+
+The Kaggle notebook and trained U-Net model are now included in the repository.
+
+Current completed pipeline:
+1. Dataset exploration
+2. Weak mask generation from bounding boxes
+3. Image-mask pairing
+4. Preprocessing
+5. Train/validation/test split
+6. U-Net model creation
+7. Model training
+8. Training curve review
+9. Prediction visualization
+10. Final evaluation
+11. Model export
+
+Next step:
+Build the Flask application for uploading dental radiographs and displaying predicted weak segmentation masks.

@@ -71,3 +71,15 @@ For each new phase:
 The AI model should not directly modify any database.
 
 Segmentation output should be stored as AI-generated output linked to a dental image record and reviewed by a dentist before clinical use.
+
+## Memory Update — Phase 10 to Phase 14
+
+The Kaggle part of the assignment is now complete.
+
+The project now contains:
+- Kaggle notebook: notebooks/tooth_segmentation_unet_kaggle.ipynb
+- Trained model: flask_app/model/unet_weak_mask_segmentation.keras
+
+The U-Net model was trained using bounding-box-derived weak masks because the dataset provides bounding boxes rather than true pixel-level segmentation masks.
+
+Final evaluation showed weak Dice and IoU but high background-driven accuracy. The limitation should be explained clearly in the report and Flask demo.
