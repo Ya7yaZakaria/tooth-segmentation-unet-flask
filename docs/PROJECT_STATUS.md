@@ -2,9 +2,7 @@
 
 ## Repository
 
-```text
 Ya7yaZakaria/tooth-segmentation-unet-flask
-```
 
 ## Completed
 
@@ -38,26 +36,52 @@ Ya7yaZakaria/tooth-segmentation-unet-flask
 
 ### Phase 3 — Weak Binary Mask Generation
 
-- One weak binary mask was generated successfully.
-- Original radiograph and generated weak mask were displayed.
-- Weak mask overlay was displayed.
+- Weak binary masks were generated from bounding boxes.
 - A reusable weak-mask generation function was created.
-- The function was tested successfully.
-- Annotated image list was prepared.
-- Annotated image existence was checked.
-- Weak masks were generated for sample images.
-- Weak masks were visually reviewed for sample images.
+- Weak masks were visually reviewed.
 - Phase 3 completion check was performed.
 
 ### Phase 4 — Image and Weak Mask Pairing
 
 - Image size was defined as 256 x 256.
 - Image-mask loading function was created.
-- The loading function was tested successfully.
 - X and Y arrays were built.
-- Final dataset values were checked.
-- Processed image and mask pair were visualized.
+- Final image-mask pair values were checked.
 - Phase 4 completion check was performed.
+
+### Phase 5 — Preprocessing
+
+- Radiographs and masks were converted into model-ready tensors.
+- Images were normalized to 0 to 1.
+- Masks were confirmed as binary values.
+- Final tensor shapes were verified.
+
+### Phase 6 — Train / Validation / Test Split
+
+- Dataset was split into training, validation, and test sets.
+- Split strategy was approximately 70 / 15 / 15.
+- Final split shapes were verified.
+
+### Phase 7 — U-Net Architecture Understanding
+
+- U-Net task was confirmed.
+- Main U-Net components were confirmed.
+- Phase 7 completion check was performed.
+
+### Phase 8 — Build U-Net Model
+
+- TensorFlow and Keras layers were imported.
+- Convolution block was defined.
+- U-Net architecture was built.
+- Model summary was displayed.
+- Model input and output shapes were verified.
+
+### Phase 9 — Loss Functions and Metrics
+
+- Dice coefficient was defined.
+- IoU metric was defined.
+- Dice loss was defined.
+- U-Net model was compiled successfully.
 
 ## Dataset Finding
 
@@ -65,17 +89,17 @@ The dataset provides bounding box annotations, not ready-made pixel-level tooth 
 
 ## Current Project Direction
 
-This project generates weak binary masks from bounding boxes and will train a U-Net weak-mask segmentation prototype.
+This project generates weak binary masks from bounding boxes and trains a U-Net weak-mask segmentation prototype.
 
 ## Current Notebook Position
 
-```text
-Phase 5 — Train / Validation Split
-```
+Phase 10 — Model Training
 
 ## Next Tasks
 
-- Import train_test_split.
-- Split X and Y into training and validation sets.
-- Confirm train and validation shapes.
-- Confirm Phase 5 completion.
+- Train the compiled U-Net model.
+- Use training data for learning.
+- Use validation data for monitoring.
+- Add EarlyStopping.
+- Add ModelCheckpoint.
+- Save the best model checkpoint.

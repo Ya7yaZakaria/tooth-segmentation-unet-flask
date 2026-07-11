@@ -132,3 +132,37 @@ Y unique values: [0. 1.]
 ### Next
 
 Start `Phase 5 — Train / Validation Split`.
+
+---
+
+## Phase 7, Phase 8, and Phase 9 Completed
+
+### Added
+
+- Added docs/PHASE_7_COMPLETION.md.
+- Added docs/PHASE_8_COMPLETION.md.
+- Added docs/PHASE_9_COMPLETION.md.
+- Updated TODO.md to match the current roadmap phases.
+- Updated docs/PROJECT_STATUS.md.
+- Updated MEMORY.md with the new notebook working rule.
+
+### Completed
+
+- Confirmed U-Net architecture task and components.
+- Built a simple U-Net model using TensorFlow/Keras.
+- Verified model input and output shapes.
+- Defined Dice coefficient.
+- Defined IoU metric.
+- Defined Dice loss.
+- Compiled the U-Net model.
+
+### Verified Result
+
+Model input shape: (None, 256, 256, 1)
+Model output shape: (None, 256, 256, 1)
+Total params: 481,745
+Model compiled successfully.
+
+### Next
+
+Start Phase 10 — Model Training.

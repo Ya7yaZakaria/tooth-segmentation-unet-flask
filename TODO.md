@@ -15,8 +15,6 @@
 
 ## Phase 1 — Kaggle Dataset Exploration
 
-- [x] Open Kaggle.
-- [x] Create new Kaggle Notebook.
 - [x] Access Tufts Radiographs dataset.
 - [x] Inspect dataset folders.
 - [x] Identify image folders.
@@ -27,7 +25,6 @@
 - [x] Visualize bounding boxes.
 - [x] Analyze class distribution.
 - [x] Confirm no ready-made pixel-level masks were found.
-- [x] Confirm bounding-box-to-weak-mask strategy.
 
 ---
 
@@ -37,91 +34,158 @@
 - [x] Confirm that bounding boxes are detection-style annotations.
 - [x] Confirm that U-Net requires image-mask pairs.
 - [x] Document that this project uses weak binary masks.
-- [x] Avoid describing generated masks as true manual tooth masks.
 
 ---
 
 ## Phase 3 — Weak Binary Mask Generation
 
-- [x] Step 1 — Generate one weak binary mask.
-- [x] Step 2 — Display original image and generated weak mask.
-- [x] Step 3 — Display weak mask overlay.
-- [x] Step 4 — Create reusable weak-mask generation function.
-- [x] Step 5 — Test reusable weak-mask generation function.
-- [x] Step 6 — Prepare annotated image list.
-- [x] Step 7 — Check annotated images exist.
-- [x] Step 8 — Generate weak masks for sample images.
-- [x] Step 9 — Visualize weak masks for sample images.
-- [x] Step 10 — Phase 3 completion check.
+- [x] Generate weak binary masks from bounding boxes.
+- [x] Create reusable weak-mask function.
+- [x] Test weak-mask function.
+- [x] Visualize generated weak masks.
+- [x] Complete Phase 3 check.
 
 ---
 
 ## Phase 4 — Image and Weak Mask Pairing
 
-- [x] Step 1 — Define image size.
-- [x] Step 2 — Create image and mask loading function.
-- [x] Step 3 — Test image and mask loading function.
-- [x] Step 4 — Build image and mask arrays.
-- [x] Step 5 — Check final dataset values.
-- [x] Step 6 — Visualize processed image and mask pair.
-- [x] Step 7 — Phase 4 completion check.
+- [x] Create matched image-mask pairs.
+- [x] Use annotated images only.
+- [x] Build X and Y arrays.
+- [x] Confirm final X and Y shapes.
+- [x] Complete Phase 4 check.
 
 ---
 
-## Phase 5 — Train / Validation Split
+## Phase 5 — Preprocessing
 
-- [ ] Step 1 — Import train test split.
-- [ ] Step 2 — Split dataset into training and validation sets.
-- [ ] Step 3 — Phase 5 completion check.
-
----
-
-## Phase 6 — U-Net Training
-
-- [ ] Build U-Net model.
-- [ ] Add Dice coefficient.
-- [ ] Add IoU metric if needed.
-- [ ] Compile model.
-- [ ] Train model.
-- [ ] Save best checkpoint.
+- [x] Confirm preprocessing settings.
+- [x] Verify preprocessed dataset tensors.
+- [x] Complete Phase 5 check.
 
 ---
 
-## Phase 7 — Evaluation and Visualization
+## Phase 6 — Train / Validation / Test Split
 
-- [ ] Evaluate on validation/test samples.
-- [ ] Show original image.
+- [x] Import train_test_split.
+- [x] Create train / validation / test split.
+- [x] Verify split shapes.
+- [x] Complete Phase 6 check.
+
+---
+
+## Phase 7 — U-Net Architecture Understanding
+
+- [x] Confirm U-Net task.
+- [x] Confirm U-Net components.
+- [x] Complete Phase 7 check.
+
+---
+
+## Phase 8 — Build U-Net Model
+
+- [x] Import TensorFlow and Keras layers.
+- [x] Define convolution block.
+- [x] Build U-Net architecture.
+- [x] Create U-Net model.
+- [x] Display model summary.
+- [x] Complete Phase 8 check.
+
+---
+
+## Phase 9 — Loss Functions and Metrics
+
+- [x] Define Dice coefficient.
+- [x] Define IoU metric.
+- [x] Define Dice loss.
+- [x] Compile U-Net model.
+- [x] Complete Phase 9 check.
+
+---
+
+## Phase 10 — Model Training
+
+- [ ] Add EarlyStopping.
+- [ ] Add ModelCheckpoint.
+- [ ] Train U-Net model.
+- [ ] Monitor validation loss and metrics.
+- [ ] Save best model checkpoint.
+- [ ] Complete Phase 10 check.
+
+---
+
+## Phase 11 — Training Curves
+
+- [ ] Plot training loss curve.
+- [ ] Plot validation loss curve.
+- [ ] Plot training Dice curve.
+- [ ] Plot validation Dice curve.
+
+---
+
+## Phase 12 — Prediction Visualization
+
+- [ ] Generate predictions.
+- [ ] Show original radiograph.
 - [ ] Show weak mask.
 - [ ] Show predicted mask.
 - [ ] Show overlay.
-- [ ] Save result screenshots.
 
 ---
 
-## Phase 8 — Model Export
+## Phase 13 — Final Evaluation
 
-- [ ] Export model as .keras or .h5.
+- [ ] Evaluate model on test set.
+- [ ] Report Dice score.
+- [ ] Report IoU score.
+- [ ] Use correct weak-mask wording.
+
+---
+
+## Phase 14 — Export Model
+
+- [ ] Export trained model as .keras or .h5.
 - [ ] Download trained model.
 - [ ] Place model inside VS Code project.
 
 ---
 
-## Phase 9 — Flask App
+## Phase 15 — Flask Project Setup
 
-- [ ] Create Flask app.
-- [ ] Create upload page.
-- [ ] Load trained model.
-- [ ] Preprocess uploaded image.
-- [ ] Predict weak mask.
-- [ ] Save prediction.
-- [ ] Display original, predicted mask, and overlay.
+- [ ] Prepare Flask deployment app.
 
 ---
 
-## Phase 10 — Final Submission
+## Phase 16 — Flask Upload Page
 
-- [ ] Finalize Kaggle notebook.
-- [ ] Finalize Flask source code.
-- [ ] Finalize README.
-- [ ] Prepare screenshots.
-- [ ] Prepare report if required.
+- [ ] Create image upload page.
+
+---
+
+## Phase 17 — Flask Prediction Pipeline
+
+- [ ] Connect trained model to Flask.
+
+---
+
+## Phase 18 — Overlay Result in Flask
+
+- [ ] Display uploaded radiograph, predicted weak mask, and overlay.
+
+---
+
+## Phase 19 — Requirements and README
+
+- [ ] Finalize README and requirements.
+
+---
+
+## Phase 20 — Final Report
+
+- [ ] Prepare academic report.
+
+---
+
+## Phase 21 — Final Submission Package
+
+- [ ] Prepare final submission folder.
