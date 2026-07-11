@@ -35,29 +35,6 @@ ground truth tooth masks
 clinical tooth boundary segmentation
 ```
 
-## Dataset Structure
-
-```text
-TUFTS/
-├── Radiographs/
-│   ├── training_images/
-│   └── testing_images/
-└── bboxes/
-    ├── trainBoundryBoxes.csv
-    └── testBoundryBoxes.csv
-```
-
-## Annotation Columns
-
-```text
-imageID
-class
-x-min
-y-min
-width
-height
-```
-
 ## Current Status
 
 Phase 0 completed.
@@ -68,25 +45,34 @@ Phase 2 imaging task understanding completed.
 
 Phase 3 weak binary mask generation completed.
 
+Phase 4 image and weak mask pairing completed.
+
 ## Current Next Step
 
 ```text
-Phase 4 — Image and Weak Mask Pairing
+Phase 5 — Train / Validation Split
 ```
 
-## Verified Phase 3 Result
+## Verified Phase 4 Result
 
 ```text
-Annotated training images: 335
-Image shape = Mask shape
-Mask unique values = [0, 255]
+X shape: (335, 256, 256, 1)
+Y shape: (335, 256, 256, 1)
+X dtype: float32
+Y dtype: float32
+X min/max: 0.0 1.0
+Y min/max: 0.0 1.0
+Y unique values: [0. 1.]
 ```
 
-## Development Direction
+## Working Rule
 
-Kaggle is used for dataset exploration, weak mask generation, model training, and model export.
+Before starting each new phase:
 
-VS Code is used for documentation, Flask app development, GitHub control, and future iHIS integration preparation.
+1. Read the current GitHub documentation.
+2. Read the latest Kaggle notebook file if uploaded.
+3. Update documentation after the phase is completed.
+4. Commit and push before moving to the next phase.
 
 ## Future iHIS Rule
 

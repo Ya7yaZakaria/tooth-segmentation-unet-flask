@@ -58,21 +58,21 @@
 
 ## Phase 4 — Image and Weak Mask Pairing
 
-- [ ] Create image-mask loading function.
-- [ ] Use annotated images only.
-- [ ] Load each radiograph and its generated weak mask.
-- [ ] Resize image and mask.
-- [ ] Normalize image and mask.
-- [ ] Build X and Y arrays.
-- [ ] Confirm final X and Y shapes.
+- [x] Step 1 — Define image size.
+- [x] Step 2 — Create image and mask loading function.
+- [x] Step 3 — Test image and mask loading function.
+- [x] Step 4 — Build image and mask arrays.
+- [x] Step 5 — Check final dataset values.
+- [x] Step 6 — Visualize processed image and mask pair.
+- [x] Step 7 — Phase 4 completion check.
 
 ---
 
 ## Phase 5 — Train / Validation Split
 
-- [ ] Split X and Y into training and validation sets.
-- [ ] Print train and validation shapes.
-- [ ] Confirm no data leakage.
+- [ ] Step 1 — Import train test split.
+- [ ] Step 2 — Split dataset into training and validation sets.
+- [ ] Step 3 — Phase 5 completion check.
 
 ---
 

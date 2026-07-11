@@ -95,3 +95,40 @@ Mask unique values = [0, 255]
 ### Next
 
 Start `Phase 4 — Image and Weak Mask Pairing`.
+
+---
+
+## Phase 4 — Image and Weak Mask Pairing Completed
+
+### Added
+
+- Added `docs/PHASE_4_COMPLETION.md`.
+- Documented Phase 4 completion.
+- Updated project status to show the next phase as train/validation split.
+- Updated project memory with the rule to read GitHub and the latest notebook before every new phase.
+
+### Completed
+
+- Defined image size as 256 x 256.
+- Created image and mask loading function.
+- Tested image and mask loading function.
+- Built X and Y arrays.
+- Checked final dataset values.
+- Visualized processed image and mask pair.
+- Completed Phase 4 check.
+
+### Verified Result
+
+```text
+X shape: (335, 256, 256, 1)
+Y shape: (335, 256, 256, 1)
+X dtype: float32
+Y dtype: float32
+X min/max: 0.0 1.0
+Y min/max: 0.0 1.0
+Y unique values: [0. 1.]
+```
+
+### Next
+
+Start `Phase 5 — Train / Validation Split`.

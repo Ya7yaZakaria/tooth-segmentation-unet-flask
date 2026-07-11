@@ -49,6 +49,16 @@ Ya7yaZakaria/tooth-segmentation-unet-flask
 - Weak masks were visually reviewed for sample images.
 - Phase 3 completion check was performed.
 
+### Phase 4 — Image and Weak Mask Pairing
+
+- Image size was defined as 256 x 256.
+- Image-mask loading function was created.
+- The loading function was tested successfully.
+- X and Y arrays were built.
+- Final dataset values were checked.
+- Processed image and mask pair were visualized.
+- Phase 4 completion check was performed.
+
 ## Dataset Finding
 
 The dataset provides bounding box annotations, not ready-made pixel-level tooth segmentation masks.
@@ -60,13 +70,12 @@ This project generates weak binary masks from bounding boxes and will train a U-
 ## Current Notebook Position
 
 ```text
-Phase 4 — Image and Weak Mask Pairing
+Phase 5 — Train / Validation Split
 ```
 
 ## Next Tasks
 
-- Create image-mask loading function.
-- Load annotated radiographs and generated weak masks.
-- Resize images and masks.
-- Normalize image-mask pairs.
-- Build X and Y arrays for U-Net training.
+- Import train_test_split.
+- Split X and Y into training and validation sets.
+- Confirm train and validation shapes.
+- Confirm Phase 5 completion.
