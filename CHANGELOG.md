@@ -196,3 +196,17 @@ Start Phase 10 — Model Training.
 - Add image upload interface.
 - Add prediction service.
 - Add visualization of uploaded image, predicted mask, and overlay.
+
+## 2026-07-11 — Phase 16 Upload Interface
+
+### Added
+- Image upload form.
+- Flask POST upload handling.
+- File extension validation.
+- Secure filename saving.
+- Uploaded image preview.
+
+### Next
+- Add model loading.
+- Add preprocessing.
+- Add prediction mask generation.

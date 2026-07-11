@@ -14,8 +14,8 @@
         }
 
         .container {
-            max-width: 900px;
-            margin: 60px auto;
+            max-width: 950px;
+            margin: 50px auto;
             background: white;
             padding: 32px;
             border-radius: 14px;
@@ -57,6 +57,55 @@
             border-radius: 10px;
             line-height: 1.6;
         }
+
+        form {
+            margin-top: 28px;
+            padding: 20px;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            background: #f9fafb;
+        }
+
+        input[type="file"] {
+            display: block;
+            margin-bottom: 16px;
+        }
+
+        button {
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 12px 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        .messages {
+            margin-top: 18px;
+            color: #991b1b;
+            font-weight: bold;
+        }
+
+        .preview {
+            margin-top: 30px;
+        }
+
+        .preview img {
+            max-width: 100%;
+            border-radius: 12px;
+            border: 1px solid #e5e7eb;
+        }
+
+        .filename {
+            color: #374151;
+            margin-bottom: 12px;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
@@ -65,7 +114,7 @@
 
         <p class="subtitle">
             U-Net based dental radiograph segmentation system using bounding-box-derived weak masks.
-            This Flask application will upload dental radiographs, run model inference, and display the predicted segmentation mask.
+            Upload a dental radiograph image to prepare it for segmentation.
         </p>
 
         {% if model_exists %}
@@ -78,8 +127,33 @@
             </div>
         {% endif %}
 
+        <form method="POST" enctype="multipart/form-data">
+            <label for="image"><strong>Upload dental radiograph:</strong></label>
+            <input type="file" id="image" name="image" accept=".png,.jpg,.jpeg">
+            <button type="submit">Upload Image</button>
+        </form>
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="messages">
+                    {% for message in messages %}
+                        <p>{{ message }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        {% if uploaded_image %}
+            <div class="preview">
+                <div class="filename">
+                    Uploaded image: {{ uploaded_filename }}
+                </div>
+                <img src="{{ uploaded_image }}" alt="Uploaded dental radiograph">
+            </div>
+        {% endif %}
+
         <div class="note">
-            Current phase: Flask project setup. Upload and prediction interface will be added in the next phase.
+            Current phase: Upload interface. Model prediction will be added in the next phase.
         </div>
     </div>
 </body>

@@ -96,3 +96,13 @@ Current Flask files:
 
 The app checks for the trained model at:
 flask_app/model/unet_weak_mask_segmentation.keras
+
+## Memory Update — Phase 16
+
+The Flask app now supports image upload.
+
+Uploaded images are saved to:
+flask_app/static/uploads
+
+The app validates image extensions and displays the uploaded image preview.
+Prediction has not been added yet.
