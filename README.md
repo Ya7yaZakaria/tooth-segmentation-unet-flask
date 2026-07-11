@@ -114,3 +114,17 @@ Current completed pipeline:
 
 Next step:
 Build the Flask application for uploading dental radiographs and displaying predicted weak segmentation masks.
+
+## Local Environment Note
+
+This project should be run locally using Python 3.11 inside a virtual environment.
+
+Recommended setup:
+
+py -3.11 -m venv .venv
+.\.venv\Scripts\activate
+python -m pip install -r requirements.txt
+cd flask_app
+python app.py
+
+Python 3.14 is not recommended for this project because TensorFlow is not available for that runtime in the current local setup.
