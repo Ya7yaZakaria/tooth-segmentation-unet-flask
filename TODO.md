@@ -31,41 +31,48 @@
 
 ---
 
-## Phase 2 — Weak Binary Mask Generation
+## Phase 2 — Understanding Dental Imaging and Segmentation
 
-- [ ] Generate one weak mask from one sample image.
-- [ ] Display original image and generated weak mask.
-- [ ] Display weak mask overlay.
-- [ ] Create reusable weak-mask generation function.
-- [ ] Validate mask shape matches original image shape.
+- [x] Clarify classification, detection, and segmentation.
+- [x] Confirm that bounding boxes are detection-style annotations.
+- [x] Confirm that U-Net requires image-mask pairs.
+- [x] Document that this project uses weak binary masks.
+- [x] Avoid describing generated masks as true manual tooth masks.
 
 ---
 
-## Phase 3 — Image and Weak Mask Pairing
+## Phase 3 — Weak Binary Mask Generation
 
+- [x] Step 1 — Generate one weak binary mask.
+- [x] Step 2 — Display original image and generated weak mask.
+- [x] Step 3 — Display weak mask overlay.
+- [x] Step 4 — Create reusable weak-mask generation function.
+- [x] Step 5 — Test reusable weak-mask generation function.
+- [x] Step 6 — Prepare annotated image list.
+- [x] Step 7 — Check annotated images exist.
+- [x] Step 8 — Generate weak masks for sample images.
+- [x] Step 9 — Visualize weak masks for sample images.
+- [x] Step 10 — Phase 3 completion check.
+
+---
+
+## Phase 4 — Image and Weak Mask Pairing
+
+- [ ] Create image-mask loading function.
 - [ ] Use annotated images only.
-- [ ] Generate image-mask pairs.
-- [ ] Check missing images.
-- [ ] Confirm number of usable pairs.
+- [ ] Load each radiograph and its generated weak mask.
+- [ ] Resize image and mask.
+- [ ] Normalize image and mask.
+- [ ] Build X and Y arrays.
+- [ ] Confirm final X and Y shapes.
 
 ---
 
-## Phase 4 — Preprocessing
+## Phase 5 — Train / Validation Split
 
-- [ ] Resize images.
-- [ ] Normalize images.
-- [ ] Resize weak masks using nearest-neighbor interpolation.
-- [ ] Convert masks to binary.
-- [ ] Expand dimensions.
-- [ ] Build NumPy arrays.
-
----
-
-## Phase 5 — Train / Validation / Test Split
-
-- [ ] Split into train, validation, and test sets.
-- [ ] Print shapes.
-- [ ] Confirm no leakage.
+- [ ] Split X and Y into training and validation sets.
+- [ ] Print train and validation shapes.
+- [ ] Confirm no data leakage.
 
 ---
 
@@ -82,7 +89,7 @@
 
 ## Phase 7 — Evaluation and Visualization
 
-- [ ] Evaluate on test set.
+- [ ] Evaluate on validation/test samples.
 - [ ] Show original image.
 - [ ] Show weak mask.
 - [ ] Show predicted mask.
@@ -107,7 +114,7 @@
 - [ ] Preprocess uploaded image.
 - [ ] Predict weak mask.
 - [ ] Save prediction.
-- [ ] Display original, mask, and overlay.
+- [ ] Display original, predicted mask, and overlay.
 
 ---
 

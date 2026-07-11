@@ -60,3 +60,38 @@ Therefore, this project will generate weak binary masks from bounding boxes for 
 Use `weak mask`, `pseudo mask`, or `bounding-box-derived mask`.
 
 Avoid describing the generated masks as true manual tooth segmentation masks.
+
+---
+
+## Phase 3 — Weak Binary Mask Generation Completed
+
+### Added
+
+- Added `docs/PHASE_3_COMPLETION.md`.
+- Documented completed Phase 3 notebook steps.
+- Updated project status to show the next phase as image-mask pairing.
+
+### Completed
+
+- Generated one weak binary mask.
+- Displayed original radiograph and generated weak mask.
+- Displayed weak mask overlay.
+- Created reusable weak-mask generation function.
+- Tested reusable function successfully.
+- Prepared annotated image list.
+- Confirmed annotated image availability.
+- Generated weak masks for sample images.
+- Visualized sample weak masks.
+- Completed Phase 3 check.
+
+### Verified Result
+
+```text
+Number of annotated training images: 335
+Image shape = Mask shape
+Mask unique values = [0, 255]
+```
+
+### Next
+
+Start `Phase 4 — Image and Weak Mask Pairing`.

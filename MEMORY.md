@@ -14,7 +14,7 @@ Ya7yaZakaria/tooth-segmentation-unet-flask
 
 The selected Tufts Radiographs dataset provides bounding box annotations, not ready-made pixel-level tooth segmentation masks.
 
-Therefore, the project will generate weak binary masks from bounding boxes and train a U-Net weak-mask segmentation prototype.
+Therefore, the project generates weak binary masks from bounding boxes and will train a U-Net weak-mask segmentation prototype.
 
 ## Correct Wording
 
@@ -62,12 +62,24 @@ height
 
 Phase 0 completed.
 
-Phase 1 dataset exploration completed in Kaggle.
+Phase 1 dataset exploration completed.
 
-Current next step:
+Phase 2 imaging task understanding completed.
+
+Phase 3 weak binary mask generation completed.
+
+## Current Next Step
 
 ```text
-Phase 2 — Generate Weak Binary Masks
+Phase 4 — Image and Weak Mask Pairing
+```
+
+## Verified Phase 3 Result
+
+```text
+Annotated training images: 335
+Image shape = Mask shape
+Mask unique values = [0, 255]
 ```
 
 ## Development Direction
