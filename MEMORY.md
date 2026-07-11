@@ -83,3 +83,16 @@ The project now contains:
 The U-Net model was trained using bounding-box-derived weak masks because the dataset provides bounding boxes rather than true pixel-level segmentation masks.
 
 Final evaluation showed weak Dice and IoU but high background-driven accuracy. The limitation should be explained clearly in the report and Flask demo.
+
+## Memory Update — Phase 15
+
+The Flask application setup has started.
+
+Current Flask files:
+- flask_app/app.py
+- flask_app/config.py
+- flask_app/templates/index.html
+- requirements.txt
+
+The app checks for the trained model at:
+flask_app/model/unet_weak_mask_segmentation.keras

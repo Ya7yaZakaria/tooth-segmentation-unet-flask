@@ -205,3 +205,12 @@
 - [ ] Phase 16 — Flask upload interface
 - [ ] Phase 17 — Flask prediction service
 - [ ] Phase 18 — Result visualization
+
+## Completed — Flask Setup
+
+- [x] Phase 15 — Flask project setup
+
+## Next
+- [ ] Phase 16 — Flask upload interface
+- [ ] Phase 17 — Flask prediction service
+- [ ] Phase 18 — Result visualization

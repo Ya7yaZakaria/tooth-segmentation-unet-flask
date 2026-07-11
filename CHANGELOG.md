@@ -181,3 +181,18 @@ Start Phase 10 — Model Training.
 ### Notes
 - The model uses bounding-box-derived weak masks.
 - The Flask deployment phase can now begin.
+
+## 2026-07-11 — Phase 15 Flask Setup
+
+### Added
+- Flask requirements file.
+- Flask app entry point.
+- Flask configuration file.
+- Initial HTML home page.
+- Model existence check.
+- Phase 15 documentation.
+
+### Next
+- Add image upload interface.
+- Add prediction service.
+- Add visualization of uploaded image, predicted mask, and overlay.
