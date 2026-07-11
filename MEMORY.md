@@ -130,3 +130,16 @@ Overlay files are saved in:
 flask_app/static/predictions
 
 The app now meets the core Flask demo requirement for the assignment.
+
+## Memory Update — Phase 20
+
+Final submission packaging is complete.
+
+Final deliverables:
+- Kaggle notebook
+- trained U-Net Keras model
+- Flask source code
+- final README
+- final submission checklist
+
+The project is now ready for final academic submission.

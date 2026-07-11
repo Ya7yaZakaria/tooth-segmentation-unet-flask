@@ -1,125 +1,84 @@
-﻿# Tooth Segmentation Using U-Net and Flask
+﻿# Development of a Dental Tooth Segmentation System Using U-Net and Flask
 
-This project is an academic assignment for developing a dental image segmentation prototype using U-Net and Flask.
+This project implements a dental radiograph segmentation workflow using a U-Net deep learning model and a Flask web application.
 
-## Assignment Title
+## Project Overview
 
-Development of a Dental Tooth Segmentation System Using U-Net and Flask
+The system allows a user to upload a dental radiograph image and receive:
+
+- A predicted weak segmentation mask
+- An overlay visualization
+- Prediction probability details
+
+The project was developed as an academic assignment for tooth segmentation using U-Net and Flask.
 
 ## Dataset
 
-Dataset Name: Tufts Radiographs
+Dataset used:
 
-Dataset Source: Kaggle
+Kaggle Tufts Radiographs dataset
 
-Dataset Link:
-https://www.kaggle.com/datasets/manarmaged/tufts-radiographs/data
+The dataset contains dental radiograph images and bounding-box annotations.
 
-## Important Dataset Limitation
+Important note:
 
-After dataset exploration, the dataset was found to provide bounding box annotations rather than ready-made pixel-level tooth segmentation masks.
+The dataset does not provide manually drawn pixel-level tooth boundary masks. Therefore, bounding-box-derived weak masks were generated and used as training masks for the U-Net model.
 
-Therefore, this project uses weak binary masks generated from bounding boxes for educational U-Net training.
+## Methodology
 
-The generated masks are pseudo masks and should not be described as true manual tooth segmentation masks.
+The workflow followed these steps:
 
-## Goal
-
-Build a complete weak-mask dental segmentation prototype:
-
-```text
-Dental panoramic radiograph
-+
-Bounding box annotation
-↓
-Generated weak binary mask
-↓
-U-Net segmentation prototype
-↓
-Export trained model
-↓
-Flask web app
-↓
-Upload new image
-↓
-Display original image, predicted weak mask, and overlay result
-```
-
-## Main Deliverables
-
-1. Kaggle Notebook
-2. Trained U-Net Model
-3. Flask Source Code
-4. Documentation
-5. Screenshots / final report if required
-
-## Environments
-
-### Kaggle
-
-Used for:
-
-- Dataset access
-- Dataset exploration
-- Weak mask generation
-- U-Net training
-- GPU usage
-- Model export
-
-### VS Code
-
-Used for:
-
-- Flask app development
-- File organization
-- Documentation
-- GitHub version control
-- Future iHIS integration preparation
-
-## Documentation
-
-Main documentation is organized in the `docs/` folder:
-
-```text
-docs/ROADMAP.md
-docs/PROJECT_STATUS.md
-docs/DATASET_FINDINGS.md
-docs/WEAK_MASK_DECISION.md
-```
-
-## Future Integration
-
-This project starts as a standalone academic assignment, but it should remain suitable for later integration into the iHIS Dentistry Module.
-
-The AI model should not directly modify any database.
-
-In the future iHIS version, the segmentation output should be linked to a dental image record and reviewed by a dentist before clinical use.
-
-## Current Project Status
-
-The Kaggle notebook and trained U-Net model are now included in the repository.
-
-Current completed pipeline:
 1. Dataset exploration
-2. Weak mask generation from bounding boxes
-3. Image-mask pairing
-4. Preprocessing
-5. Train/validation/test split
-6. U-Net model creation
+2. Annotation analysis
+3. Weak mask generation from bounding boxes
+4. Image and mask preprocessing
+5. Train, validation, and test split
+6. U-Net model construction
 7. Model training
 8. Training curve review
 9. Prediction visualization
-10. Final evaluation
+10. Final model evaluation
 11. Model export
+12. Flask deployment
+13. Upload interface
+14. Prediction service
+15. Overlay visualization
 
-Next step:
-Build the Flask application for uploading dental radiographs and displaying predicted weak segmentation masks.
+## Project Structure
 
-## Local Environment Note
+tooth-segmentation-unet-flask/
+docs/
+flask_app/
+flask_app/app.py
+flask_app/config.py
+flask_app/model/unet_weak_mask_segmentation.keras
+flask_app/services/prediction_service.py
+flask_app/static/uploads/
+flask_app/static/predictions/
+flask_app/templates/index.html
+notebooks/tooth_segmentation_unet_kaggle.ipynb
+requirements.txt
+README.md
 
-This project should be run locally using Python 3.11 inside a virtual environment.
+## Main Deliverables
 
-Recommended setup:
+Kaggle Notebook:
+notebooks/tooth_segmentation_unet_kaggle.ipynb
+
+Trained Model:
+flask_app/model/unet_weak_mask_segmentation.keras
+
+Flask Source Code:
+flask_app/app.py
+flask_app/config.py
+flask_app/services/prediction_service.py
+flask_app/templates/index.html
+
+## Local Setup
+
+Use Python 3.11.
+
+Commands:
 
 py -3.11 -m venv .venv
 .\.venv\Scripts\activate
@@ -127,4 +86,24 @@ python -m pip install -r requirements.txt
 cd flask_app
 python app.py
 
-Python 3.14 is not recommended for this project because TensorFlow is not available for that runtime in the current local setup.
+Open the app at:
+
+http://127.0.0.1:5000
+
+## Application Features
+
+- Upload dental radiograph image
+- Run U-Net prediction
+- Generate weak segmentation mask
+- Generate overlay visualization
+- Display prediction details
+
+## Technical Limitation
+
+The model was trained using bounding-box-derived weak masks.
+
+Therefore, the prediction is not a precise anatomical tooth boundary segmentation. It should be interpreted as a weak segmentation/localization output.
+
+## Final Status
+
+The project is ready for final academic submission.
