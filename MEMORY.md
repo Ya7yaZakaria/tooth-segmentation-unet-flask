@@ -1,107 +1,83 @@
 ﻿# Project Memory
 
-This file stores important project decisions and context so the work remains organized across phases.
+## Project
 
----
+Tooth Segmentation Using U-Net and Flask
 
-## Project Identity
+## Repository
 
-Project name:
+```text
+Ya7yaZakaria/tooth-segmentation-unet-flask
+```
 
-Dental Tooth Segmentation System Using U-Net and Flask
+## Main Decision
 
-Assignment title:
+The selected Tufts Radiographs dataset provides bounding box annotations, not ready-made pixel-level tooth segmentation masks.
 
-Development of a Dental Tooth Segmentation System Using U-Net and Flask
+Therefore, the project will generate weak binary masks from bounding boxes and train a U-Net weak-mask segmentation prototype.
 
----
+## Correct Wording
 
-## Main Goal
+Use:
 
-Build a standalone academic assignment that trains a U-Net model on Kaggle and deploys it using Flask.
+```text
+weak binary masks
+pseudo masks
+weak-mask segmentation prototype
+bounding-box-derived masks
+```
 
-The project should also remain suitable for future integration into the iHIS Dentistry Module.
+Avoid:
 
----
+```text
+true manual tooth segmentation masks
+ground truth tooth masks
+clinical tooth boundary segmentation
+```
 
-## Environment Decision
+## Dataset Structure
 
-Kaggle will be used for:
+```text
+TUFTS/
+├── Radiographs/
+│   ├── training_images/
+│   └── testing_images/
+└── bboxes/
+    ├── trainBoundryBoxes.csv
+    └── testBoundryBoxes.csv
+```
 
-- Dataset access
-- Model training
-- GPU usage
-- Notebook submission
+## Annotation Columns
 
-VS Code will be used for:
+```text
+imageID
+class
+x-min
+y-min
+width
+height
+```
 
-- Flask app development
-- File organization
-- README and documentation
-- Future iHIS integration preparation
+## Current Status
 
----
+Phase 0 completed.
 
-## Future iHIS Integration Decision
+Phase 1 dataset exploration completed in Kaggle.
 
-The module should be designed as a standalone prototype now, but later it may be integrated into:
+Current next step:
 
-- iHIS Dentistry Module
-- Dental Imaging workflow
-- AI Dental Assistant
-- Patient Dental Record
-- Dentist Dashboard
+```text
+Phase 2 — Generate Weak Binary Masks
+```
 
-The model should not directly modify the database.
+## Development Direction
 
-Future iHIS integration should save segmentation results as AI-generated outputs linked to dental image records and reviewed by a dentist.
+Kaggle is used for dataset exploration, weak mask generation, model training, and model export.
 
----
+VS Code is used for documentation, Flask app development, GitHub control, and future iHIS integration preparation.
 
-## Architecture Decision
+## Future iHIS Rule
 
-Keep the assignment simple, but not disposable.
+The AI model should not directly modify any database.
 
-The Flask app should separate:
-
-- Web route logic
-- AI prediction service
-- Image preprocessing utilities
-- Model storage
-- Prediction output storage
-
----
-
-## Training Decision
-
-Initial model version:
-
-- Simple U-Net
-- Binary segmentation
-- Image size: 256 x 256
-- Output: tooth mask
-- Metrics: Dice coefficient and IoU
-
----
-
-## Scope Decision
-
-Initial scope is academic and simple.
-
-Do not add:
-
-- Database
-- Login
-- RBAC
-- Complex dashboard
-- Full iHIS integration now
-
-These will be considered later after the standalone assignment works.
-
----
-
-## Current Phase
-
-Phase 0:
-
-Project understanding, file setup, planning, and architecture mindset.
+Segmentation output should be stored as AI-generated output linked to a dental image record and reviewed by a dentist before clinical use.
