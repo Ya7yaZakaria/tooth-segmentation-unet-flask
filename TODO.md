@@ -222,3 +222,18 @@
 ## Next
 - [ ] Phase 17 — Flask prediction service
 - [ ] Phase 18 — Result visualization
+
+## Completed — Prediction Service
+
+- [x] Phase 17 — Flask prediction service
+
+## Next
+- [ ] Phase 18 — Result visualization and overlay
+
+## Completed — Result Visualization
+
+- [x] Phase 18 — Result visualization and overlay
+
+## Next
+- [ ] Phase 19 — Final cleanup and testing
+- [ ] Phase 20 — Final submission packaging

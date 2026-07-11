@@ -106,3 +106,27 @@ flask_app/static/uploads
 
 The app validates image extensions and displays the uploaded image preview.
 Prediction has not been added yet.
+
+## Memory Update — Phase 17
+
+The Flask app now loads the trained U-Net model and generates a predicted weak segmentation mask after image upload.
+
+Prediction service file:
+flask_app/services/prediction_service.py
+
+Prediction outputs are saved to:
+flask_app/static/predictions
+
+The app uses threshold 0.03 due to low-confidence weak-mask model predictions.
+
+## Memory Update — Phase 18
+
+The Flask app now displays three outputs after image upload:
+- uploaded image
+- predicted weak segmentation mask
+- overlay visualization
+
+Overlay files are saved in:
+flask_app/static/predictions
+
+The app now meets the core Flask demo requirement for the assignment.

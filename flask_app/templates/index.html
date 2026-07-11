@@ -14,7 +14,7 @@
         }
 
         .container {
-            max-width: 950px;
+            max-width: 1180px;
             margin: 50px auto;
             background: white;
             padding: 32px;
@@ -91,12 +91,27 @@
             font-weight: bold;
         }
 
-        .preview {
+        .results {
             margin-top: 30px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 22px;
         }
 
-        .preview img {
-            max-width: 100%;
+        .card {
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 16px;
+            background: #ffffff;
+        }
+
+        .card h3 {
+            margin-top: 0;
+            color: #1f2937;
+        }
+
+        .card img {
+            width: 100%;
             border-radius: 12px;
             border: 1px solid #e5e7eb;
         }
@@ -105,6 +120,23 @@
             color: #374151;
             margin-bottom: 12px;
             font-weight: bold;
+            word-break: break-word;
+        }
+
+        .info {
+            margin-top: 24px;
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+            padding: 16px;
+            border-radius: 10px;
+            color: #374151;
+            line-height: 1.7;
+        }
+
+        @media (max-width: 1000px) {
+            .results {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -114,7 +146,7 @@
 
         <p class="subtitle">
             U-Net based dental radiograph segmentation system using bounding-box-derived weak masks.
-            Upload a dental radiograph image to prepare it for segmentation.
+            Upload a dental radiograph image to generate a predicted weak segmentation mask and overlay visualization.
         </p>
 
         {% if model_exists %}
@@ -130,7 +162,7 @@
         <form method="POST" enctype="multipart/form-data">
             <label for="image"><strong>Upload dental radiograph:</strong></label>
             <input type="file" id="image" name="image" accept=".png,.jpg,.jpeg">
-            <button type="submit">Upload Image</button>
+            <button type="submit">Upload and Predict</button>
         </form>
 
         {% with messages = get_flashed_messages() %}
@@ -143,17 +175,40 @@
             {% endif %}
         {% endwith %}
 
-        {% if uploaded_image %}
-            <div class="preview">
-                <div class="filename">
-                    Uploaded image: {{ uploaded_filename }}
+        {% if uploaded_image and prediction_image and overlay_image %}
+            <div class="results">
+                <div class="card">
+                    <h3>Uploaded Image</h3>
+                    <div class="filename">{{ uploaded_filename }}</div>
+                    <img src="{{ uploaded_image }}" alt="Uploaded dental radiograph">
                 </div>
-                <img src="{{ uploaded_image }}" alt="Uploaded dental radiograph">
+
+                <div class="card">
+                    <h3>Predicted Mask</h3>
+                    <div class="filename">{{ prediction_filename }}</div>
+                    <img src="{{ prediction_image }}" alt="Predicted segmentation mask">
+                </div>
+
+                <div class="card">
+                    <h3>Overlay Visualization</h3>
+                    <div class="filename">{{ overlay_filename }}</div>
+                    <img src="{{ overlay_image }}" alt="Overlay visualization">
+                </div>
+            </div>
+        {% endif %}
+
+        {% if prediction_info %}
+            <div class="info">
+                <strong>Prediction details:</strong><br>
+                Minimum probability: {{ "%.6f"|format(prediction_info.prediction_min) }}<br>
+                Maximum probability: {{ "%.6f"|format(prediction_info.prediction_max) }}<br>
+                Mean probability: {{ "%.6f"|format(prediction_info.prediction_mean) }}<br>
+                Threshold used: {{ prediction_info.threshold }}
             </div>
         {% endif %}
 
         <div class="note">
-            Current phase: Upload interface. Model prediction will be added in the next phase.
+            Current phase: Result visualization. The overlay highlights predicted weak segmentation regions over the uploaded dental radiograph.
         </div>
     </div>
 </body>

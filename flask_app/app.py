@@ -10,8 +10,12 @@ from config import (
     ALLOWED_EXTENSIONS,
 )
 
+from services.prediction_service import create_prediction_mask
+
+
 def allowed_file(filename):
     return "." in filename and filename.rsplit(".", 1)[1].lower() in ALLOWED_EXTENSIONS
+
 
 def create_app():
     app = Flask(__name__)
@@ -27,6 +31,12 @@ def create_app():
     def index():
         model_exists = os.path.exists(MODEL_PATH)
         uploaded_image = None
+        uploaded_filename = None
+        prediction_image = None
+        prediction_filename = None
+        overlay_image = None
+        overlay_filename = None
+        prediction_info = None
 
         if request.method == "POST":
             if "image" not in request.files:
@@ -39,31 +49,61 @@ def create_app():
                 flash("Please choose an image file.")
                 return redirect(url_for("index"))
 
-            if file and allowed_file(file.filename):
-                filename = secure_filename(file.filename)
-                save_path = os.path.join(app.config["UPLOAD_FOLDER"], filename)
-                file.save(save_path)
+            if not allowed_file(file.filename):
+                flash("Invalid file type. Please upload PNG, JPG, or JPEG.")
+                return redirect(url_for("index"))
 
-                uploaded_image = url_for("static", filename=f"uploads/{filename}")
+            if not model_exists:
+                flash("Model file was not found. Please add the trained Keras model first.")
+                return redirect(url_for("index"))
 
-                return render_template(
-                    "index.html",
-                    model_exists=model_exists,
-                    uploaded_image=uploaded_image,
-                    uploaded_filename=filename,
+            filename = secure_filename(file.filename)
+            upload_path = os.path.join(app.config["UPLOAD_FOLDER"], filename)
+            file.save(upload_path)
+
+            prediction_filename = f"prediction_{os.path.splitext(filename)[0]}.png"
+
+            try:
+                _, _, prediction_info = create_prediction_mask(
+                    image_path=upload_path,
+                    output_filename=prediction_filename,
+                    threshold=0.03,
                 )
+            except Exception as error:
+                flash(f"Prediction failed: {error}")
+                return redirect(url_for("index"))
 
-            flash("Invalid file type. Please upload PNG, JPG, or JPEG.")
+            uploaded_image = url_for("static", filename=f"uploads/{filename}")
+            prediction_image = url_for("static", filename=f"predictions/{prediction_filename}")
+            overlay_filename = prediction_info["overlay_filename"]
+            overlay_image = url_for("static", filename=f"predictions/{overlay_filename}")
+            uploaded_filename = filename
+
+            return render_template(
+                "index.html",
+                model_exists=model_exists,
+                uploaded_image=uploaded_image,
+                uploaded_filename=uploaded_filename,
+                prediction_image=prediction_image,
+                prediction_filename=prediction_filename,
+                overlay_image=overlay_image,
+                overlay_filename=overlay_filename,
+                prediction_info=prediction_info,
+            )
 
         return render_template(
             "index.html",
             model_exists=model_exists,
             uploaded_image=uploaded_image,
+            prediction_image=prediction_image,
+            overlay_image=overlay_image,
         )
 
     return app
 
+
 app = create_app()
+
 
 if __name__ == "__main__":
     app.run(debug=True)

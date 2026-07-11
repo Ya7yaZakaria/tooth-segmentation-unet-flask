@@ -210,3 +210,31 @@ Start Phase 10 — Model Training.
 - Add model loading.
 - Add preprocessing.
 - Add prediction mask generation.
+
+## 2026-07-11 — Phase 17 Prediction Service
+
+### Added
+- Flask prediction service module.
+- Keras model loading for inference.
+- Image preprocessing pipeline.
+- U-Net prediction mask generation.
+- Prediction mask saving.
+- Display of uploaded image and predicted mask.
+
+### Notes
+- The prediction threshold is set to 0.03 because the weakly supervised model outputs low-confidence probability maps.
+- Overlay visualization will be added in the next phase.
+
+## 2026-07-11 — Phase 18 Result Visualization
+
+### Added
+- Overlay visualization generation.
+- Three-panel result display:
+  - uploaded image
+  - predicted mask
+  - overlay visualization
+- Overlay output saving.
+- Phase 18 documentation.
+
+### Notes
+- Overlay regions represent weak-mask predictions generated from the trained U-Net model.
